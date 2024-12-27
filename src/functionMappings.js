@@ -36,5 +36,50 @@ export const functionMappings = [
         }
       }
     }
+  },
+  {
+    type: 'function',
+    title: 'Delete item from shopping list',
+    description: 'This item will remove ID {id} from the shopping list.',
+    requiresConfirmation: true,
+    function: {
+      name: 'deleteShoppingListItem',
+      parameters: {
+        type: 'object',
+        properties: {
+          id: {
+            type: 'string'
+          }
+        },
+        required: ['id']
+      }
+    }
+  },
+  {
+    type: 'function',
+    title: 'Update item on shopping list',
+    description: 'This action will update the item {id} in the shopping list.',
+    requiresConfirmation: true,
+    function: {
+      name: 'updateShoppingListItem',
+      parameters: {
+        type: 'object',
+        properties: {
+          id: {
+            type: 'string',
+            description: 'The name of the item to update.'
+          },
+          quantity: {
+            type: 'number',
+            description: 'The new quantity of the item being updated.'
+          },
+          description: {
+            type: 'string',
+            description: 'The new description of the item being updated.'
+          }
+        },
+        required: ['id']
+      }
+    }
   }
 ]

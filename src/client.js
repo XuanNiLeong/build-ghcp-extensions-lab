@@ -56,9 +56,32 @@ async function deleteShoppingListItem(id) {
   }
 }
 
+async function updateShoppingListItem(details) {
+  const { id, quantity, description } = details
+  // const url = `${baseurl}/items/${id}`
+  const url = `${baseurl}/items/${JSON.parse(id).id}`
+
+  const updateData = { id, quantity, description }
+
+  try {
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updateData)
+    })
+
+    const responseData = await response.json()
+    return responseData
+  } catch (error) {
+    console.error('Error processing API call:', error)
+    throw error
+  }
+}
+
 // Export functions to make them available outside of the file
 export const functions = [
   getShoppingList,
   addShoppingListItem,
-  deleteShoppingListItem
+  deleteShoppingListItem,
+  updateShoppingListItem
 ]
