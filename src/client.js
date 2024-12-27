@@ -58,8 +58,8 @@ async function deleteShoppingListItem(id) {
 
 async function updateShoppingListItem(details) {
   const { id, quantity, description } = details
-  // const url = `${baseurl}/items/${id}`
-  const url = `${baseurl}/items/${JSON.parse(id).id}`
+  const url = `${baseurl}/items/${id}`
+  // const url = `${baseurl}/items/${JSON.parse(id).id}`
 
   const updateData = { id, quantity, description }
 

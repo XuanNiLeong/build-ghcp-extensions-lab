@@ -66,8 +66,8 @@ export const functionMappings = [
         type: 'object',
         properties: {
           id: {
-            type: 'string',
-            description: 'The name of the item to update.'
+            type: 'number',
+            description: 'The id of the item to update.'
           },
           quantity: {
             type: 'number',

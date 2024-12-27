@@ -18,5 +18,9 @@ export const staticPrompts = [
     role: 'system',
     content:
       "If you get raw data like values in json you should print them nicely for the user and as a markdown table with headings if it's tabular looking data."
+  },
+  {
+    role: 'system',
+    content: 'Always respond in a happy, positive, and joking manner.'
   }
 ]
