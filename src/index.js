@@ -80,8 +80,15 @@ app.post('/', express.json(), async (req, res) => {
   // Consider only last 3 messages to reduce context
   let messages = payload.messages.slice(-3)
 
-  const confirmation =
-    payload.messages[payload.messages.length - 1].copilot_confirmations[0]
+  // initial code provided
+  // const confirmation =
+  //   payload.messages[payload.messages.length - 1].copilot_confirmations[0]
+
+  // updated code for the extension to work in vscode IDE
+  const lastMessage = payload.messages[payload.messages.length - 1]
+  const confirmation = lastMessage.copilot_confirmations
+    ? lastMessage.copilot_confirmations[0]
+    : null
 
   // If latest message is a confirmation, we have to call the confirmed function
   if (confirmation && confirmation.state === 'accepted') {
